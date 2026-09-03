@@ -70,11 +70,28 @@ def ChunkForAudio(alltext, chunk_size=2500):
 
 
 def audioToText(filename, model_size="base"):
-    from whisper_timestamped import load_model, transcribe_timestamped
     global WHISPER_MODEL
     if (WHISPER_MODEL == None):
-        WHISPER_MODEL = load_model(model_size)
-    gen = transcribe_timestamped(WHISPER_MODEL, filename, verbose=False, fp16=False)
+        from faster_whisper import WhisperModel
+        WHISPER_MODEL = WhisperModel(model_size, device="cpu", compute_type="int8")
+    segments, info = WHISPER_MODEL.transcribe(
+        filename, word_timestamps=True, vad_filter=True,
+        beam_size=5, condition_on_previous_text=False)
+    words_out = []
+    segments_out = []
+    text_parts = []
+    for seg in segments:
+        seg_words = []
+        for w in (seg.words or []):
+            seg_words.append({"word": w.word, "text": w.word,
+                              "start": float(w.start), "end": float(w.end)})
+        words_out.extend(seg_words)
+        segments_out.append({"start": float(seg.start), "end": float(seg.end),
+                             "text": seg.text, "words": seg_words})
+        text_parts.append(seg.text)
+    gen = {"text": " ".join(text_parts),
+           "segments": segments_out,
+           "words": words_out}
     return gen
 
 

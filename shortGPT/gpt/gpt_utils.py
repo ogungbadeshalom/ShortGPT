@@ -72,17 +72,22 @@ from openai import OpenAI
 def llm_completion(chat_prompt="", system="", temp=0.7, max_tokens=2000, remove_nl=True, conversation=None):
     openai_key= ApiKeyManager.get_api_key("OPENAI_API_KEY")
     gemini_key = ApiKeyManager.get_api_key("GEMINI_API_KEY")
-    if gemini_key:
-        client = OpenAI( 
-            api_key=gemini_key,
-            base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
-        )
-        model="gemini-2.0-flash-lite-preview-02-05"
-    elif openai_key:
-        client = OpenAI( api_key=openai_key)
-        model="gpt-4o-mini"
-    else:
-        raise Exception("No OpenAI or Gemini API Key found for LLM request")
+    import requests as _req
+    llm_base = os.environ.get("LLM_BASE_URL", "").strip().rstrip("/")
+    llm_model = os.environ.get("LLM_MODEL", "deepseek-v4-flash").strip()
+    llm_key = os.environ.get("LLM_API_KEY", "").strip()
+    if not llm_base or not llm_key:
+        # fall back to original OpenAI/Gemini clients
+        if gemini_key:
+            llm_base = "https://generativelanguage.googleapis.com/v1beta/openai"
+            llm_model = os.environ.get("GEMINI_MODEL", "gemini-2.0-flash-lite-preview-02-05")
+            llm_key = gemini_key
+        elif openai_key:
+            llm_base = "https://api.openai.com/v1"
+            llm_model = "gpt-4o-mini"
+            llm_key = openai_key
+        else:
+            raise Exception("No OpenAI/Gemini/base credentials found for LLM request")
     max_retry = 5
     retry = 0
     error = ""
@@ -95,16 +100,16 @@ def llm_completion(chat_prompt="", system="", temp=0.7, max_tokens=2000, remove_
                     {"role": "system", "content": system},
                     {"role": "user", "content": chat_prompt}
                 ]
-            response = client.chat.completions.create(
-                model=model,
-                messages=messages,
-                max_tokens=max_tokens,
-                temperature=temp,
-                timeout=30
-                )
-            text = response.choices[0].message.content.strip()
+            resp = _req.post(
+                f"{llm_base}/chat/completions",
+                headers={"Authorization": f"Bearer {llm_key}", "Content-Type": "application/json"},
+                json={"model": llm_model, "messages": messages, "max_tokens": max_tokens, "temperature": temp},
+                timeout=120,
+            )
+            resp_json = resp.json()
+            text = resp_json["choices"][0]["message"]["content"].strip()
             if remove_nl:
-                text = re.sub('\s+', ' ', text)
+                text = re.sub('\\s+', ' ', text)
             filename = '%s_llm_completion.txt' % time()
             if not os.path.exists('.logs/gpt_logs'):
                 os.makedirs('.logs/gpt_logs')
@@ -113,7 +118,13 @@ def llm_completion(chat_prompt="", system="", temp=0.7, max_tokens=2000, remove_
             return text
         except Exception as oops:
             retry += 1
-            print('Error communicating with OpenAI:', oops)
+            rb = resp if 'resp' in locals() else None
+            rj = 'none'
+            try:
+                rj = (rb.text if rb is not None else 'none')[:300]
+            except Exception:
+                rj = 'none'
+            print('Error communicating with LLM:', oops, rj)
             error = str(oops)
             sleep(1)
     raise Exception(f"Error communicating with LLM Endpoint Completion errored more than error: {error}")

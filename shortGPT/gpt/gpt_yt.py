@@ -3,10 +3,12 @@ import json
 
 def generate_title_description_dict(content):
     out = {"title": "", "description":""}
+    attempts = 0
     chat, system = gpt_utils.load_local_yaml_prompt('prompt_templates/yt_title_description.yaml')
     chat = chat.replace("<<CONTENT>>", f"{content}")
     
-    while out["title"] == "" or out["description"] == "":
+    while (out["title"] == "" or out["description"] == "") and attempts < 6:
+        attempts += 1
         result = gpt_utils.llm_completion(chat_prompt=chat, system=system, temp=1)
         try:
             response = json.loads(result)

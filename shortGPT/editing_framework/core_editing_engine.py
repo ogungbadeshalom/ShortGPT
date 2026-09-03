@@ -197,6 +197,42 @@ class CoreEditingEngine:
         if 'audio' in asset['parameters']:
             params['audio'] = asset['parameters']['audio']
         clip = VideoFileClip(**params)
+
+        # PORTRAIT BACKGROUND FIX:
+        # The stock CROP_1920x1080 step assumes a LANDSCAPE (1920x1080) source and
+        # crops it to vertical. If the source is already a vertical/portrait clip
+        # (e.g. a 1080x1920 YouTube Short used as background), that chain overruns
+        # the width and collapses to a near-blank strip. Detect portrait sources
+        # and apply a clean full-frame vertical fit instead (scale-to-cover 1080x1920).
+        try:
+            src_w = int(clip.size[0])
+            src_h = int(clip.size[1])
+        except Exception:
+            src_w = src_h = 0
+        if src_w and src_h and src_h > src_w and any(
+            a.get('type') == 'resize' and a.get('param', {}).get('width', 0) == 1920
+            and a.get('param', {}).get('height', 0) == 1920
+            for a in asset.get('actions', [])
+        ):
+            # Replace the crop/resize actions with a cover-fit to 1080x1920
+            from moviepy import vfx
+            TARGET_W, TARGET_H = 1080, 1920
+            target_ar = TARGET_W / TARGET_H
+            src_ar = src_w / src_h
+            if src_ar > target_ar:
+                # too wide -> scale by height, crop width
+                new_h = TARGET_H
+                new_w = int(new_h * src_ar)
+            else:
+                # too tall -> scale by width, crop height
+                new_w = TARGET_W
+                new_h = int(new_w / src_ar)
+            clip = clip.with_effects([vfx.Resize((new_w, new_h))])
+            x = (new_w - TARGET_W) // 2
+            y = (new_h - TARGET_H) // 2
+            clip = clip.with_effects([vfx.Crop(x1=x, y1=y, x2=x + TARGET_W, y2=y + TARGET_H)])
+            return clip
+
         return self.process_common_visual_actions(clip, asset['actions'])
 
     def process_image_asset(self, asset: Dict[str, Any]) -> ImageClip:

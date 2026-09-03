@@ -3,7 +3,12 @@ import json
 def generateFacts(facts_type):
     chat, system = gpt_utils.load_local_yaml_prompt('prompt_templates/facts_generator.yaml')
     chat = chat.replace("<<FACTS_TYPE>>", facts_type)
-    result = gpt_utils.llm_completion(chat_prompt=chat, system=system, temp=1.3)
+    result = gpt_utils.llm_completion(chat_prompt=chat, system=system, temp=0.9)
+    import re
+    # strip markdown so TTS reads clean prose
+    result = re.sub(r'[#*`>]', '', result)
+    result = re.sub(r'^\s*\d+[\.\)]\s*', '', result, flags=re.M)
+    result = re.sub(r'\s+', ' ', result).strip()
     return result
 
 def generateFactSubjects(n):

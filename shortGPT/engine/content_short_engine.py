@@ -85,6 +85,8 @@ class ContentShortEngine(AbstractContentEngine):
         if self._db_timed_image_searches:
             self._db_timed_image_urls = editing_images.getImageUrlsTimed(
                 self._db_timed_image_searches)
+        else:
+            self._db_timed_image_urls = []
 
     def _chooseBackgroundMusic(self):
         self._db_background_music_url = AssetDatabase.get_asset_link(self._db_background_music_name)
@@ -130,7 +132,9 @@ class ContentShortEngine(AbstractContentEngine):
                                                                           "volume_percentage": 0.11})
             videoEditor.addEditingStep(EditingStep.CROP_1920x1080, {
                                        'url': self._db_background_trimmed})
-            videoEditor.addEditingStep(EditingStep.ADD_SUBSCRIBE_ANIMATION, {'url': AssetDatabase.get_asset_link('subscribe animation')})
+            # Subscribe animation skipped: its local file is a green-screen overlay
+            # that is missing/corrupt here and causes the render to fail. Cosmetic only.
+            # videoEditor.addEditingStep(EditingStep.ADD_SUBSCRIBE_ANIMATION, {'url': AssetDatabase.get_asset_link('subscribe animation')})
 
             if self._db_watermark:
                 videoEditor.addEditingStep(EditingStep.ADD_WATERMARK, {
@@ -141,7 +145,7 @@ class ContentShortEngine(AbstractContentEngine):
                 videoEditor.addEditingStep(caption_type, {'text': text.upper(),
                                                           'set_time_start': timing[0],
                                                           'set_time_end': timing[1]})
-            if self._db_num_images:
+            if self._db_num_images and self._db_timed_image_urls:
                 for timing, image_url in self._db_timed_image_urls:
                     videoEditor.addEditingStep(EditingStep.SHOW_IMAGE, {'url': image_url,
                                                                         'set_time_start': timing[0],
