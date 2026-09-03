@@ -91,16 +91,15 @@ def getImageUrlsTimed(imageTextPairs):
 
 
 def searchImageUrlsFromQuery(query, top=3, expected_dim=[720, 720], retries=3):
-    # HARD-FILTER: reject person/people-based queries. Gaming shorts show GAME
-    # objects, not people. The query prompt already bans people, this is backup.
-    # NOTE: 'face'/'hands' are intentionally NOT here — they appear in legit game
-    # queries like "creeper face", "hand holding controller".
-    _FORBIDDEN = ['person', 'woman', 'man ', ' girl', ' boy', 'human', 'portrait',
-                  ' people', 'player', 'stock photo', ' happy', ' sad ',
-                  'crowd', 'girlfriend', 'nsfw', 'sexy', 'hot ', 'model ']
+    # HARD-FILTER: narrow backup on top of the (already people-banning) prompt.
+    # Only block terms that would NEVER legitimately appear in a game-object
+    # query. 'model'/'face'/'hands' are deliberately NOT blocked — "pig model",
+    # "creeper face", "hand holding controller" are valid GAME images.
+    _FORBIDDEN = ['nude', 'nsfw', 'sexy', 'porn', 'hot woman', 'hot man',
+                  'bikini', 'underwear', 'girlfriend', 'onlyfans']
     low = query.lower()
     if any(f in low for f in _FORBIDDEN):
-        # REJECT entirely: a person/unrelated query must NOT produce an image.
+        # REJECT entirely: an unsafe query must NOT produce an image.
         # The scene will just show the gameplay background instead of a wrong pic.
         print(f"      [image gate] REJECTED unsafe query: {query!r}")
         return None
