@@ -2,6 +2,7 @@ from shortGPT.api_utils.image_api import getBingImages
 from tqdm import tqdm
 import random
 import math
+import re
 import os
 import time
 import requests
@@ -21,21 +22,25 @@ def searchPexelsImages(query, top=5, api_key=None, download_dir="_pexels_imgs"):
     try:
         r = requests.get(
             "https://api.pexels.com/v1/search",
-            params={"query": query, "per_page": top, "orientation": "portrait"},
+            params={"query": query, "per_page": top},
             headers={"Authorization": key, "User-Agent": UA},
             timeout=15,
         )
         r.raise_for_status()
         data = r.json()
         out = []
+        import urllib.request as _urllib_request
         for i, p in enumerate(data.get("photos", [])):
             url = p["src"]["large"]
             local = os.path.join(download_dir, f"{_RUN_ID}_{abs(hash(query))}_{i}.jpg")
             try:
-                ir = requests.get(url, headers={"User-Agent": UA}, timeout=20)
-                ir.raise_for_status()
+                # urllib + Referer header reliably downloads Pexels CDN from datacenter
+                req = _urllib_request.Request(url, headers={"User-Agent": UA,
+                                                           "Referer": "https://www.bing.com/"})
+                with _urllib_request.urlopen(req, timeout=20) as resp:
+                    content = resp.read()
                 with open(local, "wb") as f:
-                    f.write(ir.content)
+                    f.write(content)
                 out.append({"url": local, "width": p["width"], "height": p["height"]})
             except Exception as e:
                 print(f"      [pexels image {i} download failed: {e}]")
@@ -58,28 +63,39 @@ def searchWebImages(query, top=6, download_dir="_web_imgs", retries=3):
             if not url:
                 continue
             # skip obvious placeholder/icon URLs
-            if any(x in url.lower() for x in ['svg', 'logo', 'icon', 'spacer', 'blank']):
+            if any(x in url.lower() for x in ['svg', 'logo', 'icon', 'spacer', 'blank',
+                                              'data:', 'transparent', 'placeholder']):
                 continue
             ext = url.lower().rsplit('.', 1)[-1] if '.' in url else 'jpg'
             if ext not in ('jpg', 'jpeg', 'png', 'webp'):
                 ext = 'jpg'
             local = os.path.join(download_dir, f"{_RUN_ID}_{abs(hash(query))}_{i}.{ext}")
-            try:
-                # DEDUP: skip URLs we've already fetched this run (fixes reuse)
-                if url in _SEEN_URLS:
-                    continue
-                ir = requests.get(url, headers={"User-Agent": UA}, timeout=20)
-                ir.raise_for_status()
-                if len(ir.content) < 3000:
-                    continue  # too small = placeholder
-                with open(local, "wb") as f:
-                    f.write(ir.content)
-                _SEEN_URLS.add(url)
-                out.append({"url": local,
-                            "width": img.get("width", 720),
-                            "height": img.get("height", 720)})
-            except Exception as e:
+            # DEDUP: skip URLs we've already fetched this run (fixes reuse)
+            if url in _SEEN_URLS:
                 continue
+            # Try up to 2 times per URL; add Referer header (many hosts 403
+            # direct hotlink downloads from datacenter IPs without it).
+            got = False
+            for attempt in range(2):
+                try:
+                    ir = requests.get(
+                        url, headers={"User-Agent": UA,
+                                      "Referer": "https://www.bing.com/",
+                                      "Accept": "image/webp,image/*,*/*;q=0.8"},
+                        timeout=20)
+                    ir.raise_for_status()
+                    if len(ir.content) < 4000:
+                        break  # too small = placeholder, try next attempt's candidate
+                    with open(local, "wb") as f:
+                        f.write(ir.content)
+                    _SEEN_URLS.add(url)
+                    out.append({"url": local,
+                                "width": img.get("width", 720),
+                                "height": img.get("height", 720)})
+                    got = True
+                    break
+                except Exception:
+                    continue
         return out if out else None
     except Exception as e:
         print(f"      [web image search failed for '{query}': {e}]")
@@ -104,10 +120,25 @@ def searchImageUrlsFromQuery(query, top=3, expected_dim=[720, 720], retries=3):
         print(f"      [image gate] REJECTED unsafe query: {query!r}")
         return None
 
-    # Prefer REAL web images (actual game art/screenshots) over stock Pexels.
-    images = searchWebImages(query, top=top, retries=retries)
+    # PREFER Pexels (verified, search-matched images served by an official API —
+    # reliable from this datacenter box). Web/Bing scraping is flaky and is only
+    # a fallback. Strip the trailing " image"/"photo" noise for Pexels matching.
+    pexels_query = re.sub(r'\s*(image|photo|picture|pic)$', '', query.strip()).strip()
+    images = searchPexelsImages(pexels_query, top=top)
     if not images:
-        return None  # if web search gives nothing usable, DON'T substitute a random stock image
+        # Broaden: for game queries, fall back to just the theme keyword(s)
+        # (e.g. "minecraft pig model image" -> "minecraft") so Pexels finds something.
+        broad = re.sub(r'\s*(pig model|model|cave|character|world|building|creeper|game).*$', '', pexels_query, flags=re.I).strip()
+        if broad and broad != pexels_query:
+            images = searchPexelsImages(broad, top=top)
+    if not images:
+        images = searchWebImages(query, top=top, retries=retries)
+    if not images:
+        try:
+            import time; time.sleep(1.0)
+        except Exception:
+            pass
+        images = searchWebImages(query, top=top, retries=retries)
     if images:
         distances = list(map(lambda x: math.dist([x['width'], x['height']], expected_dim), images[0:top]))
         best = min(range(len(distances)), key=lambda i: distances[i])
