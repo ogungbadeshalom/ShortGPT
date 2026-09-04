@@ -106,6 +106,43 @@ def getImageUrlsTimed(imageTextPairs):
     return [(pair[0], searchImageUrlsFromQuery(pair[1])) for pair in tqdm(imageTextPairs, desc='Search engine queries for images...')]
 
 
+def searchWikimediaImages(query, top=4, download_dir="_wiki_imgs"):
+    """Fetch REAL, factual images from Wikimedia Commons. Keyless, free, and
+    WORKS from this datacenter box (verified live). Best for history/mythology/
+    finance/factual narration — real named artifacts/photos vs generic stock.
+
+    Returns list of dicts: {url (full), thumb (480px), title, desc, lic}.
+    Filters to YouTube-safe licenses (PD/CC0/CC BY/CC BY-SA)."""
+    import urllib.request as _u, urllib.parse, json, os, re
+    os.makedirs(download_dir, exist_ok=True)
+    safe = re.sub(r'\s*(image|photo|picture|pic)\b.*$', '', query).strip()
+    safe = re.sub(r'\s+at\s+\d+.*$', '', safe).strip()  # not needed; keep simple
+    api = ("https://commons.wikimedia.org/w/api.php?action=query"
+           "&generator=search&gsrnamespace=6&gsrlimit=" + str(top) +
+           "&gsrsearch=" + urllib.parse.quote(safe) +
+           "&prop=imageinfo&iiprop=url|extmetadata&iiurlwidth=480&format=json")
+    req = _u.Request(api, headers={"User-Agent": "shorts-pipeline/1.0"})
+    try:
+        with _u.urlopen(req, timeout=25) as resp:
+            d = json.loads(resp.read().decode())
+    except Exception as e:
+        print(f"      [wikimedia search failed for '{query}': {e}]")
+        return []
+    ok_l = ("PublicDomain", "CC0", "CC BY", "CC BY-SA")
+    out = []
+    for p in d.get("query", {}).get("pages", {}).values():
+        ii = p.get("imageinfo", [{}])[0]
+        if not ii:
+            continue
+        lic = (ii.get("extmetadata", {}).get("LicenseShortName", {}).get("value", "") or "")
+        lic = lic.replace("Public domain", "PublicDomain")
+        if any(k in lic for k in ok_l):
+            out.append({"url": ii.get("url"), "thumb": ii.get("thumburl"),
+                        "title": p.get("title"), "desc": ii.get("descriptionurl"),
+                        "lic": lic})
+    return out[:top]
+
+
 def searchImageUrlsFromQuery(query, top=3, expected_dim=[720, 720], retries=3):
     # HARD-FILTER: narrow backup on top of the (already people-banning) prompt.
     # Only block terms that would NEVER legitimately appear in a game-object

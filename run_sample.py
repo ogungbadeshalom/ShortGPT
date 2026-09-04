@@ -13,7 +13,7 @@ if os.path.exists('/root/AutoShorts-AI/.env'):
 cfg=yaml.safe_load(open('/root/.hermes/config.yaml'))
 m=cfg.get('model',{})
 os.environ['LLM_BASE_URL']=m.get('base_url','https://freeinference.org/v1').rstrip('/')
-os.environ['LLM_MODEL']='glm-5.2'  # user preference: glm-5.2 over deepseek
+os.environ['LLM_MODEL']='deepseek-v4-flash'  # stable for script gen (glm-5.2 returns empty content intermittently)
 os.environ['LLM_API_KEY']=m.get('api_key','')
 
 from shortGPT.config.asset_db import AssetDatabase, AssetType

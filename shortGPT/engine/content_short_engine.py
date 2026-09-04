@@ -83,8 +83,19 @@ class ContentShortEngine(AbstractContentEngine):
 
     def _generateImageUrls(self):
         if self._db_timed_image_searches:
-            self._db_timed_image_urls = editing_images.getImageUrlsTimed(
-                self._db_timed_image_searches)
+            import os as _os
+            use_gif = _os.environ.get("USE_GIF", "").strip().lower() in ("1","true","yes","gif")
+            if use_gif:
+                from shortGPT.api_utils import gif_api
+                pairs = []
+                for timing, query in self._db_timed_image_searches:
+                    u = gif_api.searchForKeyframe(query, top=3)
+                    if u:
+                        pairs.append((timing, u))
+                self._db_timed_image_urls = pairs
+            else:
+                self._db_timed_image_urls = editing_images.getImageUrlsTimed(
+                    self._db_timed_image_searches)
         else:
             self._db_timed_image_urls = []
 
@@ -146,10 +157,13 @@ class ContentShortEngine(AbstractContentEngine):
                                                           'set_time_start': timing[0],
                                                           'set_time_end': timing[1]})
             if self._db_num_images and self._db_timed_image_urls:
+                import os as _os
+                use_gif = _os.environ.get("USE_GIF", "").strip().lower() in ("1","true","yes","gif")
+                step = EditingStep.SHOW_GIF if use_gif else EditingStep.SHOW_IMAGE
                 for timing, image_url in self._db_timed_image_urls:
-                    videoEditor.addEditingStep(EditingStep.SHOW_IMAGE, {'url': image_url,
-                                                                        'set_time_start': timing[0],
-                                                                        'set_time_end': timing[1]})
+                    videoEditor.addEditingStep(step, {'url': image_url,
+                                                     'set_time_start': timing[0],
+                                                     'set_time_end': timing[1]})
             print("***** SCHEMA FOR RENDERING ****")
             print(videoEditor.dumpEditingSchema())
             print("***** SCHEMA FOR RENDERING ****")

@@ -23,6 +23,7 @@ class EditingStep(Enum):
     ADD_WATERMARK = "show_watermark.json"
     ADD_SUBSCRIBE_ANIMATION = "subscribe_animation.json"
     SHOW_IMAGE = "show_top_image.json"
+    SHOW_GIF = "show_gif.json"
     ADD_VOICEOVER_AUDIO = "add_voiceover.json"
     ADD_BACKGROUND_MUSIC = "background_music.json"
     ADD_REDDIT_IMAGE = "show_reddit_image.json"

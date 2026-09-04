@@ -110,9 +110,25 @@ def llm_completion(chat_prompt="", system="", temp=0.7, max_tokens=2000, remove_
             _msg = resp_json["choices"][0]["message"]
             text = (_msg.get("content") or "").strip()
             if not text:
-                # Some reasoning models (e.g. glm-5.2 on freeinference) put the
-                # answer in 'reasoning_content' and return empty 'content'. Use it.
-                text = (_msg.get("reasoning_content") or _msg.get("reasoning") or "").strip()
+                _rc = (_msg.get("reasoning_content") or _msg.get("reasoning") or "").strip()
+                if _rc:
+                    # Retry with a larger budget + disable_thinking so we get an
+                    # actual 'content', not the chain-of-thought.
+                    try:
+                        _retry = _req.post(
+                            f"{llm_base}/chat/completions",
+                            headers={"Authorization": f"Bearer {llm_key}", "Content-Type": "application/json"},
+                            json={"model": llm_model, "messages": messages,
+                                  "max_tokens": max_tokens * 3, "temperature": temp,
+                                  "chat_template_kwargs": {"disable_thinking": True}},
+                            timeout=120,
+                        )
+                        _rj = _retry.json()
+                        text = (_rj["choices"][0]["message"].get("content") or "").strip()
+                    except Exception:
+                        pass
+                if not text and _rc:
+                    text = _rc[-800:]  # last resort: short usable tail
             if remove_nl:
                 text = re.sub('\\s+', ' ', text)
             filename = '%s_llm_completion.txt' % time()

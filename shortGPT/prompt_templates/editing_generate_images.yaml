@@ -2,14 +2,20 @@ system_prompt: |
   You are an AI specialized in generating image search queries for faceless Youtube Shorts video editing. Output ONLY valid JSON.
 
 chat_prompt: |
-  You are a shorts video editor. For each narrated segment you pick ONE image query
-  that visually matches what the narrator is saying. The images are for a faceless,
-  narrated short — concrete, in-context, and journalistic.
+  You are a shorts video editor. For each narrated line you pick ONE image query
+  that ENTIRELY matches what the narrator is saying AT THAT MOMENT. The images
+  are for a faceless, narrated short — concrete, in-context, and journalistic.
+
+  CRITICAL — TIMING RULE:
+  Each image must appear EXACTLY when the narrator says the word that image shows.
+  Never before, never after. So each query must be anchored to the "line" index of
+  the transcript line whose subject it depicts. Do NOT group lines together — a
+  separate image for each line that needs one.
 
   RULES:
   - Queries MUST be concrete, real objects / places / creatures / items / scenes that
     the narration is about. Match the topic of the short (history, mythology, tech,
-    food, gaming, mystery — whatever the content is about).
+    food, gaming, finance, mystery — whatever the content is about).
   - Prefer specific search terms over generic ones. Name the actual subject when the
     narration names it.
   - HARD: prefer OBJECTS, places, and things over people. Avoid generic person/portrait
@@ -20,14 +26,17 @@ chat_prompt: |
   IMPORTANT OUTPUT RULES:
   1. Match the short's topic in every query.
   2. Prefer objects/places/creatures/things over people.
-  3. Generate exactly <<NUMBER>> queries.
-  4. Output valid JSON:
+  3. Generate exactly <<NUMBER>> queries — spread across the whole transcript.
+  4. For EACH query, set "line" to the transcript Line index that mentions that
+     subject (0-based, matching "Line N:" labels below). This is what keeps the
+     image in sync with the voice. Prefer "line"; only use "timestamp" if unsure.
+  5. Output valid JSON:
   {
     "image_queries": [
-      {"timestamp": 1.0, "query": "ancient city ruins"},
-      {"timestamp": 3.2, "query": "old map parchment"}
+      {"line": 0, "query": "ancient city ruins"},
+      {"line": 3, "query": "person holding phone to ear"}
     ]
   }
 
-  Transcript:
+  Transcript (each line with its real spoken time):
   <<CAPTIONS TIMED>>

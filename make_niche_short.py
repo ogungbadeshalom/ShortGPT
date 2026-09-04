@@ -22,6 +22,7 @@ NICHE_BG = {
     "mythology": ["ancient greek temple", "roman statue marble", "ancient ruins columns"],
     "tech": ["futuristic technology", "server room", "computer chip"],
     "food": ["cooking kitchen food", "chef preparing dish", "fresh ingredients"],
+    "finance": ["money finance coins", "stock market graph", "budget calculator", "piggy bank saving"],
 }
 
 # Curated gaming facts topics (real, teachable) to auto-pick from
@@ -32,9 +33,21 @@ GAMING_TOPICS = [
     "Minecraft surprising secrets: the hidden world type that was never finished",
 ]
 
+# Curated personal-finance / money-tips topics (financial LITERACY, no advice)
+FINANCE_TOPICS = [
+    "Money facts: why your credit score is about managing a small line of credit, not how much you earn",
+    "Money facts: the compounding trick — why starting small and early beats starting big and late",
+    "Money facts: why 'pay yourself first' even five dollars builds the habit that saves",
+    "Money facts: how credit card interest actually works and why minimum payments cost you",
+    "Money facts: why most people never negotiate their bills — and the one line that can lower them",
+    "Money facts: the 50/30/20 rule and why a simple split beats a complicated budget",
+]
+
 def pick_topic(niche):
     if niche == "gaming":
         return random.choice(GAMING_TOPICS)
+    if niche == "finance":
+        return random.choice(FINANCE_TOPICS)
     # generic fallback: just use the niche theme
     return f"Surprising facts about {niche} that most people don't know"
 
@@ -54,7 +67,7 @@ def run(niche, topic):
     import render_niche as rn
     rn.NICHE = niche
     c = rn.CONF[niche]
-    rn.build_bg(c["bg"])
+    rn.build_bg(c["bg"], youtube_bg=c.get("youtube_bg"))
     # clean image caches for fresh verified images
     for d in ("_web_imgs", "_pexels_imgs"):
         subprocess.run(["python3", "-c",

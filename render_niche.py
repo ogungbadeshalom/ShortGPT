@@ -32,8 +32,15 @@ CONF = {
     },
     "gaming": {
         "bg": ["minecraft", "minecraft gameplay", "minecraft world"],
+        "youtube_bg": "https://www.youtube.com/shorts/DYxFa_ZFj_c",  # user's Minecraft gameplay (fresh cookies clear the bot-block)
         "facts": "Minecraft surprising facts: the Creeper was a failed pig model and how it became iconic, plus why the game's original name was Cave Game",
         "out": "niche_gaming.mp4",
+    },
+    "finance": {
+        "bg": ["money finance coins", "stock market graph", "budget calculator", "piggy bank saving"],
+        "youtube_bg": "https://www.youtube.com/shorts/DYxFa_ZFj_c",  # SAME background as former video (user's gameplay)
+        "facts": "Money and personal finance facts: surprising truths about saving, credit cards, and how money really works that most people don't know (financial literacy, not investment advice)",
+        "out": "niche_finance.mp4",
     },
 }
 
@@ -66,29 +73,38 @@ def pexels_bg(query):
             continue
     raise RuntimeError(f"no portrait bg for {query}: {last_err}")
 
+def _use_pexels(query):
+    """Download a themed Pexels portrait background to /tmp/niche_bg_raw.mp4."""
+    url = pexels_bg(query)
+    rr = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, stream=True, timeout=120)
+    rr.raise_for_status()
+    with open("/tmp/niche_bg_raw.mp4", "wb") as f:
+        for chunk in rr.iter_content(1 << 20):
+            f.write(chunk)
+
 def build_bg(query, youtube_bg=None):
     os.makedirs("public", exist_ok=True)
     if youtube_bg:
-        # Download a Minecraft video via yt-dlp (user's cookies) as the background.
+        # Try the user's YouTube video first (fresh cookies usually clear the block).
         print("BG from YouTube:", youtube_bg)
-        subprocess.run(["/root/AutoShorts-AI/.venv/bin/yt-dlp", "--cookies", "/root/shortgpt_cookies.txt",
-                        "-f", "bv*[height<=1080]+ba/b[height<=1080]", "-o", "/tmp/niche_bg_raw.%(ext)s",
-                        youtube_bg], check=False, timeout=240)
-        # find the actual downloaded file
+        _dl = subprocess.run(["/root/AutoShorts-AI/.venv/bin/yt-dlp", "--cookies", "/root/shortgpt_cookies.txt",
+                              "-f", "bv*[height<=1080]+ba/b[height<=1080]", "-o", "/tmp/niche_bg_raw.%(ext)s",
+                              youtube_bg], capture_output=True, text=True, timeout=240)
         import glob
         cands = glob.glob("/tmp/niche_bg_raw.*")
-        if not cands:
-            print("BG FROM YOUTUBE FAILED")
-            raise RuntimeError("youtube bg download failed")
+        ok = _dl.returncode == 0 and cands and os.path.getsize(cands[0]) > 50000
+        if not ok:
+            # YouTube blocked / failed -> SOFT FAIL to the themed Pexels background.
+            print(f"BG from YouTube failed (rc={_dl.returncode}) -> falling back to Pexels: {query}")
+            for c in cands:
+                try: os.remove(c)
+                except: pass
+            _use_pexels(query)
+            return
         raw = cands[0]
         subprocess.run(["cp", raw, "/tmp/niche_bg_raw.mp4"], check=True)
     else:
-        url = pexels_bg(query)
-        rr = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, stream=True, timeout=120)
-        rr.raise_for_status()
-        with open("/tmp/niche_bg_raw.mp4", "wb") as f:
-            for chunk in rr.iter_content(1 << 20):
-                f.write(chunk)
+        _use_pexels(query)
     # probe duration
     pr = subprocess.run(["ffprobe", "-v", "quiet", "-print_format", "json", "-show_format", "-i", "/tmp/niche_bg_raw.mp4"],
                         capture_output=True, text=True)

@@ -46,10 +46,12 @@ class CoreEditingEngine:
             asset_type = asset['type']
             if asset_type == 'video':
                 clip = self.process_video_asset(asset)
-            elif asset_type == 'image':
-                # clip = self.process_image_asset(asset)
+            elif asset_type in ('image', 'gif'):
+                # 'gif' = animated overlay (looping mp4). Treated like an image
+                # for position/size/timing but rendered as a looping VideoFileClip.
                 try:
-                    clip = self.process_image_asset(asset)
+                    clip = (self.process_gif_overlay_asset(asset) if asset_type == 'gif'
+                            else self.process_image_asset(asset))
                 except Exception as e:
                     print(f"Failed to load image {asset['parameters']['url']}. Error : {str(e)}")
                     continue
@@ -238,6 +240,27 @@ class CoreEditingEngine:
     def process_image_asset(self, asset: Dict[str, Any]) -> ImageClip:
         clip = ImageClip(asset['parameters']['url'])
         return self.process_common_visual_actions(clip, asset['actions'])
+
+    def process_gif_overlay_asset(self, asset: Dict[str, Any]) -> VideoFileClip:
+        """Animated overlay (looping mp4/GIF). Loaded as a video clip with audio
+        stripped, resized/positioned/timed like an image so it plays on top of the
+        background during its time window. The clip is looped so a short gif keeps
+        animating for the whole display window. The common actions include
+        set_time_* (with_end caps it), auto_resize_image, normalize_image and
+        screen_position."""
+        clip = VideoFileClip(handle_path(asset['parameters']['url']), audio=False)
+        # Determine the display end time from the set_time_end action so we can
+        # loop the source clip to fill the whole window (default 2.5s).
+        end = None
+        for a in asset.get('actions', []):
+            if a.get('type') == 'set_time_end' and a.get('param') is not None:
+                end = float(a['param'])
+        target = end or 2.5
+        if clip.duration and target > clip.duration:
+            from moviepy import vfx
+            clip = clip.with_effects([vfx.Loop(duration=target)])
+        clip = self.process_common_visual_actions(clip, asset['actions'])
+        return clip
 
     def process_text_asset(self, asset: Dict[str, Any]) -> TextClip:
         text_clip_params = asset['parameters']
