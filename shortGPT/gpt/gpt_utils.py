@@ -107,7 +107,12 @@ def llm_completion(chat_prompt="", system="", temp=0.7, max_tokens=2000, remove_
                 timeout=120,
             )
             resp_json = resp.json()
-            text = resp_json["choices"][0]["message"]["content"].strip()
+            _msg = resp_json["choices"][0]["message"]
+            text = (_msg.get("content") or "").strip()
+            if not text:
+                # Some reasoning models (e.g. glm-5.2 on freeinference) put the
+                # answer in 'reasoning_content' and return empty 'content'. Use it.
+                text = (_msg.get("reasoning_content") or _msg.get("reasoning") or "").strip()
             if remove_nl:
                 text = re.sub('\\s+', ' ', text)
             filename = '%s_llm_completion.txt' % time()
