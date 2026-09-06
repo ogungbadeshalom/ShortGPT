@@ -58,6 +58,70 @@ ShortGPT is a powerful framework for automating content creation. It simplifies 
 
 - 🌐🎥 **Asset Sourcing**: Sources images and video footage from the internet, connecting with the web and Pexels API as necessary.
 
+---
+
+# ⭐ Fork Additions — Custom Video Templates
+
+This fork adds bespoke, isolated video templates that coexist with the default
+ShortGPT pipelines. They live as **separate engines/scripts** so they never
+interfere with the stock frames or each other.
+
+## 🎯 WTD — "What's the Difference?" Explainer Template
+
+The **WTD** template is Shalom's signature 30-second faceless explainer shorts:
+a minimal stickman host (green beanie + red scarf) compares two concepts, X vs Y,
+with the locked beat flow:
+
+```
+1. "This is X."            (concept X photo shown alone, stickman points)
+2. "This is Y."            (both photos shown, stickman switches pose)
+3. "What's the difference?"(both photos, stickman shrugs with "?" marks)
+4-6. Plain-spoken explanation, no jargon
+7. Closing takeaway
+```
+
+Then a fixed **subscribe end-card**: follow text + teal `@justthediff` handle
++ the SUBSCRIBE stickman holding a red sign.
+
+### Files
+- `wtd_compositor.py` — PIL frame + end-card renderer (text-safe auto-fit/wrap,
+  transparent stickmen, fixed central position, dynamic concept-image registration,
+  `@justthediff` watermark bottom-left).
+- `make_wtd_single.py` — single-comparison builder (parameterized BEATS).
+- `make_daily_finance.py` — **DWTD auto-generate pipeline** for the
+  "Just The Difference" finance channel:
+  → pick fresh topic from `wtd_topic_pool.json` → DeepSeek writes the 7 beats →
+  2 Pexels concept photos → render 30s short with CTA end-card. Fully unattended.
+- `pick_wtd_topic.py` — picker over the 526-topic finance pool (marks used).
+- `wtd_topic_pool.json` — 526 finance "A vs B" topics (finance-only, high RPM).
+
+### Runtime assets (OUTSIDE git, must exist)
+- `/root/wtd_assets/stickmen_t/stick_1|2|3.png` — the 3 poses (point/point/ask)
+- `/root/wtd_assets/stickmen_t/stick_subscribe.png` — transparent SUBSCRIBE stickman
+- `/root/wtd_assets/finance/*.png` — concept photo thumbnails
+- `PEXELS_API_KEY` in env (reads from `/root/AutoShorts-AI/.env`)
+- LLM via freeinference `deepseek-v4-flash` (key from hermes `config.yaml`)
+- Voice: `en-US-AndrewMultilingualNeural` (edge-tts)
+
+### End-to-end daily generate
+```bash
+# dry-run (pick topic + show script, no render)
+python3 make_daily_finance.py --dry
+
+# make next video (marks topic used, writes file + _latest_wtd.json)
+python3 make_daily_finance.py
+```
+
+### Uploading to "Just The Difference"
+Upload path reuses `youtubeuploader` (see `shalom-dark-history/uploader/`).
+Channel config: `uploader/channel_config.json`; auth token lives in
+`uploader/request.token` (must be authorized to the finance channel).
+
+---
+*Everything above is additive to the upstream repo — the stock ShortGPT
+pipelines (gaming secrets, dark history, tips, stock facts) are untouched and
+still run independently.*
+
 - 🧠 **Memory and persistency**: Ensures long-term persistency of automated editing variables with TinyDB.
 
 ## 🚀 Quick Start: Run ShortGPT on Google Colab (https://colab.research.google.com/drive/1_2UKdpF6lqxCqWaAcZb3rwMVQqtbisdE?usp=sharing)
