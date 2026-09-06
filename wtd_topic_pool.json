@@ -1,0 +1,3167 @@
+{
+ "meta": {
+  "channel": "@justthediff",
+  "name": "Just The Difference",
+  "format": "This is A / This is B / What's the difference?",
+  "target_sec": 30,
+  "niche": "finance-only (highest RPM)"
+ },
+ "topics": [
+  {
+   "A": "Index Fund",
+   "B": "ETF",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Simple Interest",
+   "B": "Compound Interest",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Roth IRA",
+   "B": "Traditional IRA",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Credit Card",
+   "B": "Debit Card",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Credit Score",
+   "B": "Credit Report",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Mortgage",
+   "B": "Home Equity Loan",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Stocks",
+   "B": "Bonds",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Checking Account",
+   "B": "Savings Account",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Gross Income",
+   "B": "Net Income",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "401(k)",
+   "B": "IRA",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Brokerage Account",
+   "B": "Retirement Account",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Bull Market",
+   "B": "Bear Market",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Dividend",
+   "B": "Stock Split",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "APR",
+   "B": "Interest Rate",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Fixed Rate",
+   "B": "Variable Rate",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Personal Loan",
+   "B": "Payday Loan",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Term Life",
+   "B": "Whole Life Insurance",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Prepaid Card",
+   "B": "Credit Card",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Joint Account",
+   "B": "Individual Account",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "FICO Score",
+   "B": "VantageScore",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Down Payment",
+   "B": "Deposit",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Principal",
+   "B": "Interest",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Asset",
+   "B": "Liability",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Appreciation",
+   "B": "Depreciation",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Cash Flow",
+   "B": "Profit",
+   "theme": "finance",
+   "used": true
+  },
+  {
+   "A": "Revenue",
+   "B": "Income",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Equity",
+   "B": "Debt",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Investment",
+   "B": "Speculation",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Diversification",
+   "B": "Concentration",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Market Order",
+   "B": "Limit Order",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Blue Chip",
+   "B": "Penny Stock",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Short Selling",
+   "B": "Put Option",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Secured Credit Card",
+   "B": "Unsecured Card",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Debt Consolidation",
+   "B": "Refinancing",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "HSA",
+   "B": "FSA",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Variable APR",
+   "B": "Fixed APR",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Regular Savings",
+   "B": "Money Market Account",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Capital Gains",
+   "B": "Income Tax",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Annual Percentage Yield",
+   "B": "Interest Rate",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Bitcoin",
+   "B": "Ethereum",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Cryptocurrency",
+   "B": "Stock",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "NFT",
+   "B": "Fungible Token",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Wallet",
+   "B": "Exchange",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Cold Wallet",
+   "B": "Hot Wallet",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "P2P Lending",
+   "B": "Bank Loan",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Mutual Fund",
+   "B": "Hedge Fund",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Traditional Bank",
+   "B": "Online Bank",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Crypto",
+   "B": "Blockchain",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Miners",
+   "B": "Validators",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Proof of Work",
+   "B": "Proof of Stake",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Bank Rate",
+   "B": "Federal Funds Rate",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Inflation",
+   "B": "Deflation",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Recession",
+   "B": "Depression",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "GDP",
+   "B": "GNP",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Fiscal Policy",
+   "B": "Monetary Policy",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Public Company",
+   "B": "Private Company",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "IPO",
+   "B": "Secondary Offering",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Merger",
+   "B": "Acquisition",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Assets",
+   "B": "Net Worth",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Budget",
+   "B": "Budgeting App",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Fixed Expense",
+   "B": "Variable Expense",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Needs",
+   "B": "Wants",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Emergency Fund",
+   "B": "Savings",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Subscriptions",
+   "B": "One-time Purchase",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Deductible",
+   "B": "Premium",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Co-pay",
+   "B": "Coinsurance",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Out-of-pocket Maximum",
+   "B": "Deductible",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Deposit Insurance",
+   "B": "Brokerage Insurance",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Required Minimum Distribution",
+   "B": "Withdrawal",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Backdoor Roth",
+   "B": "Standard Roth",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Tax Deduction",
+   "B": "Tax Credit",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Standard Deduction",
+   "B": "Itemized Deduction",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Pre-tax",
+   "B": "Post-tax",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Earned Income",
+   "B": "Passive Income",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Active Income",
+   "B": "Residual Income",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Salary",
+   "B": "Hourly Wage",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Bonus",
+   "B": "Commission",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Gross Pay",
+   "B": "Take-home Pay",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "W-2",
+   "B": "1099",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Employee",
+   "B": "Contractor",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Full-time",
+   "B": "Freelance",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Stock Option",
+   "B": "RSU",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Vesting",
+   "B": "Earning",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Liquidity",
+   "B": "Solvency",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Yield",
+   "B": "Return",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Nominal",
+   "B": "Real Return",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Debt-to-Income",
+   "B": "Credit Utilization",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Hard Inquiry",
+   "B": "Soft Inquiry",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Settlement",
+   "B": "Charge-off",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Authorized User",
+   "B": "Co-signer",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Balance Transfer",
+   "B": "Cash Advance",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Annual Fee",
+   "B": "Interest Charge",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "High-Yield Savings",
+   "B": "Money Market Account",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Term Life Insurance",
+   "B": "Whole Life Insurance",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "401(k)",
+   "B": "403(b)",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Roth 401(k)",
+   "B": "Traditional 401(k)",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "APR",
+   "B": "APY",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Fixed-Rate Mortgage",
+   "B": "Adjustable-Rate Mortgage",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Home Equity Loan",
+   "B": "HELOC",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Pre-Qualified",
+   "B": "Pre-Approved",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Home Appraisal",
+   "B": "Home Inspection",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Mortgage Points",
+   "B": "Closing Costs",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Refinance",
+   "B": "Cash-Out Refinance",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Foreclosure",
+   "B": "Short Sale",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Chapter 7",
+   "B": "Chapter 13 Bankruptcy",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Debt Consolidation",
+   "B": "Debt Settlement",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Secured Loan",
+   "B": "Unsecured Loan",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Minimum Payment",
+   "B": "Full Balance",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Authorized User",
+   "B": "Joint Account Holder",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Term Deposit",
+   "B": "Demand Deposit",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Certificate of Deposit",
+   "B": "Treasury Bill",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "T-Bill",
+   "B": "T-Note",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Municipal Bond",
+   "B": "Corporate Bond",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Junk Bond",
+   "B": "Investment-Grade Bond",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Blue Chip Stock",
+   "B": "Penny Stock",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Growth Stock",
+   "B": "Value Stock",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Common Stock",
+   "B": "Preferred Stock",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Dividends",
+   "B": "Capital Gains",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Qualified Dividends",
+   "B": "Ordinary Dividends",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Stock Split",
+   "B": "Reverse Stock Split",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "IPO",
+   "B": "SPAC",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Stock Market",
+   "B": "Stock Exchange",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Primary Market",
+   "B": "Secondary Market",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Market Correction",
+   "B": "Market Crash",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Recession",
+   "B": "Bear Market",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Nominal Return",
+   "B": "Real Return",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Revenue",
+   "B": "Profit",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Gross Profit",
+   "B": "Net Profit",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Operating Income",
+   "B": "Net Income",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "EBIT",
+   "B": "EBITDA",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Balance Sheet",
+   "B": "Income Statement",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Cash-Basis Accounting",
+   "B": "Accrual Accounting",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Accounts Payable",
+   "B": "Accounts Receivable",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "W-2",
+   "B": "1099 Form",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "W-4",
+   "B": "W-2 Form",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Standard Deduction",
+   "B": "Itemized Deductions",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Marginal Tax Rate",
+   "B": "Effective Tax Rate",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Pre-Tax Contribution",
+   "B": "Post-Tax Contribution",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "SEP IRA",
+   "B": "SIMPLE IRA",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Social Security",
+   "B": "Medicare",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Annuity",
+   "B": "401(k)",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Immediate Annuity",
+   "B": "Deferred Annuity",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Term Life",
+   "B": "Universal Life Insurance",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "HMO",
+   "B": "PPO Insurance",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "PPO",
+   "B": "EPO Health Plan",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Copay",
+   "B": "Coinsurance",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "In-Network",
+   "B": "Out-of-Network Care",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Insurance Premium",
+   "B": "Deductible",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Comprehensive Auto",
+   "B": "Collision Coverage",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Umbrella Insurance",
+   "B": "Homeowners Insurance",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Dollar-Cost Averaging",
+   "B": "Lump-Sum Investing",
+   "theme": "finance",
+   "used": true
+  },
+  {
+   "A": "Stop-Loss Order",
+   "B": "Stop-Limit Order",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Mutual Funds",
+   "B": "ETFs",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Index Fund",
+   "B": "Actively Managed Fund",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Expense Ratio",
+   "B": "Trading Fee",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Broker",
+   "B": "Financial Advisor",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Active Investing",
+   "B": "Passive Investing",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Day Trading",
+   "B": "Swing Trading",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Long Position",
+   "B": "Short Selling",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Leverage",
+   "B": "Margin",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Futures",
+   "B": "Options",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Call Option",
+   "B": "Put Option",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Coin",
+   "B": "Token",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Crypto Wallet",
+   "B": "Exchange",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Public Key",
+   "B": "Private Key",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Mining",
+   "B": "Staking",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Blockchain",
+   "B": "Database",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Fiat Currency",
+   "B": "Cryptocurrency",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Asset Allocation",
+   "B": "Diversification",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Net Worth",
+   "B": "Cash Flow",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Amortization",
+   "B": "Depreciation",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Fixed Expenses",
+   "B": "Variable Expenses",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Budget",
+   "B": "Cash Flow Plan",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Emergency Fund",
+   "B": "General Savings",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Debt-to-Income Ratio",
+   "B": "Credit Utilization",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "ACH Transfer",
+   "B": "Wire Transfer",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Mobile Wallet",
+   "B": "Payment App",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Tax Withholding",
+   "B": "Estimated Tax",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Backdoor Roth",
+   "B": "Roth Conversion",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "CD Ladder",
+   "B": "Bond Ladder",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Sinking Fund",
+   "B": "Vacation Fund",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Cash Value Life Insurance",
+   "B": "Investment Account",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Rebalancing",
+   "B": "Reallocating",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Face Value",
+   "B": "Market Value",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Book Value",
+   "B": "Market Value",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Yield",
+   "B": "Total Return",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Coupon Rate",
+   "B": "Current Yield",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Bid Price",
+   "B": "Ask Price",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "FHA Loan",
+   "B": "Conventional Loan",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Current Yield",
+   "B": "Yield to Maturity",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Extended Warranty",
+   "B": "Home Warranty",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Bank",
+   "B": "Credit Union",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Savings Account",
+   "B": "Certificate of Deposit",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Savings Account",
+   "B": "Money Market Account",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "High-Yield Savings Account",
+   "B": "Traditional Savings Account",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Money Order",
+   "B": "Cashier's Check",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Certified Check",
+   "B": "Cashier's Check",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Zelle",
+   "B": "Venmo",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Cash App",
+   "B": "Venmo",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "FDIC Insurance",
+   "B": "SIPC Insurance",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Direct Deposit",
+   "B": "Payroll Check",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Recurring Transfer",
+   "B": "One-Time Transfer",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "ATM Withdrawal",
+   "B": "Bank Teller",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "PIN Debit",
+   "B": "Signature Debit",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Stock",
+   "B": "Mutual Fund",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Large-Cap Stock",
+   "B": "Small-Cap Stock",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Futures Contract",
+   "B": "Options Contract",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Long Position",
+   "B": "Short Position",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Angel Investor",
+   "B": "Venture Capital",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Crowdfunding",
+   "B": "Venture Capital",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "IPO",
+   "B": "Direct Listing",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Cash Dividend",
+   "B": "Stock Buyback",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Market Cap",
+   "B": "Enterprise Value",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "P/E Ratio",
+   "B": "Forward P/E",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Return on Equity",
+   "B": "Return on Assets",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "EPS",
+   "B": "Diluted EPS",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Beta",
+   "B": "Alpha",
+   "theme": "finance",
+   "used": true
+  },
+  {
+   "A": "Mutual Fund",
+   "B": "Index Fund",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Blue-Chip Stock",
+   "B": "Dividend Stock",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Momentum Trading",
+   "B": "Value Investing",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Fundamental Analysis",
+   "B": "Technical Analysis",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Spot Price",
+   "B": "Futures Price",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Robo-Advisor",
+   "B": "Human Advisor",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Treasury Bond",
+   "B": "Corporate Bond",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "TIPS",
+   "B": "Nominal Treasury Bond",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "I-Bond",
+   "B": "EE-Bond",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Municipal Bond",
+   "B": "Treasury Bond",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Bond Fund",
+   "B": "Individual Bond",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Money Market Fund",
+   "B": "Bond Fund",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Diversified Fund",
+   "B": "Sector Fund",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Fractional Share",
+   "B": "Whole Share",
+   "theme": "finance",
+   "used": true
+  },
+  {
+   "A": "Commission",
+   "B": "Bid-Ask Spread",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Target-Date Fund",
+   "B": "Index Fund",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Accumulation Phase",
+   "B": "Distribution Phase",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "401(k)",
+   "B": "Pension",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "401(k)",
+   "B": "SEP IRA",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Solo 401(k)",
+   "B": "SEP IRA",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Traditional IRA",
+   "B": "SEP IRA",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Pension",
+   "B": "Social Security",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Annuity",
+   "B": "IRA",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Fixed Annuity",
+   "B": "Variable Annuity",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "529 Plan",
+   "B": "UTMA Account",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "529 Plan",
+   "B": "Coverdell ESA",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Roth 401(k)",
+   "B": "Roth IRA",
+   "theme": "finance",
+   "used": true
+  },
+  {
+   "A": "Vested",
+   "B": "Unvested",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Defined Benefit Plan",
+   "B": "Defined Contribution Plan",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Emergency Fund",
+   "B": "Sinking Fund",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Emergency Fund",
+   "B": "Investment Account",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Rainy Day Fund",
+   "B": "Emergency Fund",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Escrow Account",
+   "B": "Trust Account",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Trust",
+   "B": "Will",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Credit Card",
+   "B": "Charge Card",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Revolving Credit",
+   "B": "Installment Credit",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Secured Credit Card",
+   "B": "Unsecured Credit Card",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Credit Freeze",
+   "B": "Credit Lock",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Credit Report",
+   "B": "Credit Monitoring",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Cashback Card",
+   "B": "Travel Rewards Card",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Cashback Rewards",
+   "B": "Airline Miles",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Charge Card",
+   "B": "Debit Card",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "0% Intro APR",
+   "B": "Deferred Interest",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Revolving Balance",
+   "B": "Statement Balance",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Open Account",
+   "B": "Closed Account",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Virtual Card",
+   "B": "Physical Card",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Rewards Card",
+   "B": "Balance Transfer Card",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Credit Card Balance",
+   "B": "Available Credit",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "VA Loan",
+   "B": "Conventional Loan",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "USDA Loan",
+   "B": "FHA Loan",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Jumbo Loan",
+   "B": "Conforming Loan",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Amortizing Loan",
+   "B": "Interest-Only Loan",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Balloon Payment",
+   "B": "Fully Amortized Payment",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Student Loan",
+   "B": "Personal Loan",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Federal Student Loan",
+   "B": "Private Student Loan",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Subsidized Loan",
+   "B": "Unsubsidized Loan",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Loan Consolidation",
+   "B": "Refinancing",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "First Mortgage",
+   "B": "Second Mortgage",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Points",
+   "B": "Discount Points",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Origination Fee",
+   "B": "Points",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Closing Costs",
+   "B": "Prepaid Costs",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "15-Year Mortgage",
+   "B": "30-Year Mortgage",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Prepayment Penalty",
+   "B": "Balloon Payment",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Mortgage",
+   "B": "Deed of Trust",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Bridge Loan",
+   "B": "Home Equity Loan",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Co-Signer",
+   "B": "Guarantor",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Purchase Mortgage",
+   "B": "Refinance",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Term Life Insurance",
+   "B": "Universal Life Insurance",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Whole Life Insurance",
+   "B": "Universal Life Insurance",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Term Insurance",
+   "B": "Permanent Insurance",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "HMO",
+   "B": "PPO",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Medicare",
+   "B": "Medicaid",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Medicare Part A",
+   "B": "Medicare Part B",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Short-Term Disability",
+   "B": "Long-Term Disability",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Health Insurance",
+   "B": "Dental Insurance",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Homeowners Insurance",
+   "B": "Renters Insurance",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Collision Coverage",
+   "B": "Comprehensive Coverage",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Liability Only",
+   "B": "Full Coverage Auto",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Named Peril Policy",
+   "B": "All-Risk Policy",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Replacement Cost",
+   "B": "Actual Cash Value",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Umbrella Policy",
+   "B": "Homeowners Policy",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Single Plan",
+   "B": "Family Plan",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "In-Network Provider",
+   "B": "Out-of-Network Provider",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Tax-Deferred Account",
+   "B": "Tax-Free Account",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Taxable Account",
+   "B": "Tax-Deferred Account",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Federal Income Tax",
+   "B": "State Income Tax",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Property Tax",
+   "B": "Income Tax",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Gift Tax",
+   "B": "Estate Tax",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Long-Term Capital Gain",
+   "B": "Short-Term Capital Gain",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Estimated Taxes",
+   "B": "Paycheck Withholding",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Tax Refund",
+   "B": "Tax Owed",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Sales Tax",
+   "B": "Income Tax",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Ordinary Income",
+   "B": "Capital Gains",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Business Mileage",
+   "B": "Commuting Miles",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Budget",
+   "B": "Net Worth Statement",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Zero-Based Budget",
+   "B": "Envelope Budgeting",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Envelope Budgeting",
+   "B": "50-30-20 Rule",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Disposable Income",
+   "B": "Discretionary Income",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Cash Flow Statement",
+   "B": "Income Statement",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Cost of Living",
+   "B": "Standard of Living",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Good Debt",
+   "B": "Bad Debt",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Stablecoin",
+   "B": "Fiat Currency",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Physical Gold",
+   "B": "Gold ETF",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Paper Money",
+   "B": "Digital Money",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Invoice",
+   "B": "Receipt",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Cash Dividend",
+   "B": "Stock Dividend",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Dividend Income",
+   "B": "Interest Income",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Nasdaq",
+   "B": "Dow Jones",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "S&P 500",
+   "B": "Total U.S. Market Index",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Domestic Stock",
+   "B": "International Stock",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Regular Contribution",
+   "B": "Catch-Up Contribution",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "REIT",
+   "B": "Rental Property",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Commodity",
+   "B": "Security",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Crypto Exchange",
+   "B": "Brokerage",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Saving",
+   "B": "Investing",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Net Worth",
+   "B": "Annual Income",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Checking Account",
+   "B": "Money Market Account",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "CD Ladder",
+   "B": "Single CD",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Treasury Bill",
+   "B": "CD",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Auto Loan",
+   "B": "Auto Lease",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Margin Account",
+   "B": "Cash Account",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Expense Ratio",
+   "B": "Transaction Fee",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Net Asset Value",
+   "B": "Share Price",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "52-Week High",
+   "B": "All-Time High",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Active Trading",
+   "B": "Buy-and-Hold",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Current Ratio",
+   "B": "Quick Ratio",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Payout Ratio",
+   "B": "Retention Ratio",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Line of Credit",
+   "B": "Personal Loan",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Premium",
+   "B": "Out-of-Pocket Cost",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Coinsurance",
+   "B": "Deductible",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Group Insurance",
+   "B": "Individual Insurance",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Single Premium",
+   "B": "Level Premium",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Beneficiary",
+   "B": "Policyholder",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Face Value",
+   "B": "Cash Value",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Insurance Rider",
+   "B": "Endorsement",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Operating Budget",
+   "B": "Capital Budget",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Cash Accounting",
+   "B": "Accrual Accounting",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Statement Balance",
+   "B": "Current Balance",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Credit Limit",
+   "B": "Available Credit",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Open-End Credit",
+   "B": "Closed-End Credit",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Revolving Line",
+   "B": "Personal Loan",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Payday Loan",
+   "B": "Title Loan",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Title Loan",
+   "B": "Installment Loan",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Refinance",
+   "B": "Loan Modification",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Cash-Out Refinance",
+   "B": "Rate-and-Term Refinance",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Pre-qualification",
+   "B": "Pre-approval",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Pre-approval",
+   "B": "Loan Approval",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Credit Counseling",
+   "B": "Debt Settlement",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Bankruptcy",
+   "B": "Debt Settlement",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Chapter 7",
+   "B": "Chapter 13",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Chapter 11",
+   "B": "Chapter 7",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Debt Collector",
+   "B": "Creditor",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Original Creditor",
+   "B": "Debt Buyer",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Statute of Limitations",
+   "B": "Credit Report Time Limit",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Amortized Loan",
+   "B": "Interest-Only Loan",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Balloon Payment",
+   "B": "Amortized Payment",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Grace Period",
+   "B": "Deferment",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Forbearance",
+   "B": "Deferment",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Loan Principal",
+   "B": "Loan Interest",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Mortgagor",
+   "B": "Mortgagee",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Down Payment",
+   "B": "Closing Costs",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "APR",
+   "B": "Note Rate",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Title Insurance",
+   "B": "Homeowners Insurance",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "PITI",
+   "B": "Principal and Interest",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "PMI",
+   "B": "Homeowners Insurance",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Loan-to-Value Ratio",
+   "B": "Combined Loan-to-Value",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Debt-to-Income Ratio",
+   "B": "Loan-to-Value Ratio",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Nominal Interest Rate",
+   "B": "Effective Interest Rate",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Certificate of Deposit",
+   "B": "High-Yield Savings Account",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Certificate of Deposit",
+   "B": "US Savings Bond",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Treasury Bill",
+   "B": "US Savings Bond",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "I-Bond",
+   "B": "EE Bond",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Custodial Account",
+   "B": "Trust Account",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "High-Deductible Health Plan",
+   "B": "PPO",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Flexible Spending Account",
+   "B": "Health Savings Account",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Original Medicare",
+   "B": "Medicare Advantage",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Medigap",
+   "B": "Medicare Advantage",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "COBRA",
+   "B": "Marketplace Plan",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Accidental Death & Dismemberment",
+   "B": "Life Insurance",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Workers' Compensation",
+   "B": "Private Disability Insurance",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Claims-Made Policy",
+   "B": "Occurrence Policy",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "First-Party Claim",
+   "B": "Third-Party Claim",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Indexed Annuity",
+   "B": "Fixed Annuity",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Annuity",
+   "B": "Life Insurance",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Term Life",
+   "B": "Universal Life",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Universal Life",
+   "B": "Whole Life",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Renewable Term",
+   "B": "Convertible Term",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Return of Premium Term",
+   "B": "Level Term",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Gap Insurance",
+   "B": "Full Coverage Auto",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Liability Only",
+   "B": "Full Coverage",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Car Insurance",
+   "B": "Homeowners Insurance",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Coinbase",
+   "B": "Binance",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Crypto Exchange",
+   "B": "Crypto Wallet",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Custodial Wallet",
+   "B": "Non-Custodial Wallet",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Cold Storage",
+   "B": "Hot Wallet",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Seed Phrase",
+   "B": "Private Key",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Seed Phrase",
+   "B": "Hardware Wallet",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Ledger",
+   "B": "Trezor",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Spot Trading",
+   "B": "Futures Trading",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Spot Trading",
+   "B": "Margin Trading",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Blockchain",
+   "B": "Bitcoin",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Halving",
+   "B": "Difficulty Adjustment",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Blockchain Node",
+   "B": "Miner",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Mainnet",
+   "B": "Testnet",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Mainnet",
+   "B": "Layer 2 Network",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Fungible Token",
+   "B": "Non-Fungible Asset",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "USDT",
+   "B": "USDC",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Bitcoin",
+   "B": "Altcoin",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Decentralized Finance",
+   "B": "Centralized Finance",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Yield Farming",
+   "B": "DeFi Lending",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "DeFi Lending",
+   "B": "DeFi Borrowing",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Swap",
+   "B": "Token Transfer",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Airdrop",
+   "B": "Initial Coin Offering",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "ICO",
+   "B": "IPO",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "DAO",
+   "B": "LLC",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "DAO",
+   "B": "Traditional Fund",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Soft Fork",
+   "B": "Hard Fork",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Liquidity Pool",
+   "B": "Order Book",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Slippage",
+   "B": "Price Impact",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Impermanent Loss",
+   "B": "Slippage",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Altcoin",
+   "B": "Stablecoin",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Privacy Coin",
+   "B": "Transparent Coin",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "On-Chain",
+   "B": "Off-Chain",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "On-Chain Transaction",
+   "B": "Lightning Network",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Lightning Network",
+   "B": "Bitcoin Mainchain",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Custodial",
+   "B": "Self-Custody",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Block Reward",
+   "B": "Transaction Fee",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Gas Fee",
+   "B": "Network Fee",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Token Burn",
+   "B": "Token Mint",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Mining Pool",
+   "B": "Solo Mining",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Buy Now, Pay Later",
+   "B": "Credit Card",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Buy Now, Pay Later",
+   "B": "Installment Loan",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Layaway",
+   "B": "Buy Now, Pay Later",
+   "theme": "finance",
+   "used": true
+  },
+  {
+   "A": "Peer-to-Peer Lending",
+   "B": "Bank Loan",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Paycheck Advance",
+   "B": "Payday Loan",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Overdraft",
+   "B": "Non-Sufficient Funds",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Overdraft Protection",
+   "B": "Line of Credit",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Venmo",
+   "B": "PayPal",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "ACH Transfer",
+   "B": "Credit Card Payment",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Debit Card",
+   "B": "ACH Payment",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Direct Deposit",
+   "B": "Paycheck",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Mobile Wallet",
+   "B": "Physical Card",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Apple Pay",
+   "B": "Google Pay",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Contactless Payment",
+   "B": "Chip-and-PIN",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Neobank",
+   "B": "Traditional Bank",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Online Bank",
+   "B": "Brick-and-Mortar Bank",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Fintech Company",
+   "B": "Bank",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Savings Account",
+   "B": "Investment Account",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Mutual Fund",
+   "B": "ETF",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Stock",
+   "B": "Bond",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Dividend",
+   "B": "Interest",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Adjusted Gross Income",
+   "B": "Taxable Income",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Cashback Card",
+   "B": "Points Card",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Cash Back",
+   "B": "Travel Points",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Airline Miles",
+   "B": "Credit Card Points",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "0% Intro APR",
+   "B": "Balance Transfer Offer",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Income-Driven Repayment",
+   "B": "Standard Repayment",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Public Service Loan Forgiveness",
+   "B": "Income-Driven Repayment",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Leasing a Car",
+   "B": "Buying a Car",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "MSRP",
+   "B": "Invoice Price",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Renting a Home",
+   "B": "Buying a Home",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Security Deposit",
+   "B": "First Month's Rent",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Earnest Money",
+   "B": "Down Payment",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Bridge Loan",
+   "B": "HELOC",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Construction Loan",
+   "B": "Permanent Mortgage",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Closing Costs",
+   "B": "Prepaid Items",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Title",
+   "B": "Deed",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Quitclaim Deed",
+   "B": "Warranty Deed",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Escrow Account",
+   "B": "Personal Savings Account",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Fed Funds Rate",
+   "B": "Prime Rate",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Fed Funds Rate",
+   "B": "Discount Rate",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Corporate Bond",
+   "B": "Government Bond",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Whole Life",
+   "B": "Indexed Universal Life",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Forex",
+   "B": "Stock Market",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Stop Payment",
+   "B": "Stop Order",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Bank Wires",
+   "B": "Postal Money Order",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Overdraft",
+   "B": "Insufficient Funds",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Checks",
+   "B": "ACH",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Statement",
+   "B": "Billing Cycle",
+   "theme": "finance",
+   "used": true
+  },
+  {
+   "A": "Credit Hours",
+   "B": "Interest Bearing",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Compound",
+   "B": "Linear Growth",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Wealth",
+   "B": "Income",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Savings Rate",
+   "B": "Savings Balance",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Dollar Cost Averaging",
+   "B": "Lump Sum Investing",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Backdoor Roth",
+   "B": "Pro-Rata Rule",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Full Retirement Age",
+   "B": "Early Retirement",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Defined Benefit",
+   "B": "Defined Contribution",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Collateralized",
+   "B": "Unsecured Bond",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Muni Bond",
+   "B": "Treasury Bond",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "I-Bond",
+   "B": "TIPS",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Yield Curve",
+   "B": "Steep Curve",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Rebalancing",
+   "B": "Reallocation",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Roth Conversion",
+   "B": "Direct Rollover",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Tier 1",
+   "B": "Tier 2 Capital",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Bookkeeping",
+   "B": "Accounting",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Debit",
+   "B": "Credit Entry",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Trial Balance",
+   "B": "Balance Sheet",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "GAAP",
+   "B": "IFRS",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Accrued",
+   "B": "Deferred Revenue",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Market Capitalization",
+   "B": "Float",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Dividend Yield",
+   "B": "Dividend Growth",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Net Worth",
+   "B": "Cash Flow Statement",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Annuity",
+   "B": "Pension",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Death Benefit",
+   "B": "Cash Value",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Term Rider",
+   "B": "Permanent Rider",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Group Life",
+   "B": "Individual Life",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "ID Theft",
+   "B": "Fraud",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Chargeback",
+   "B": "Dispute",
+   "theme": "finance",
+   "used": false
+  },
+  {
+   "A": "Savings Bond",
+   "B": "Treasury Bond",
+   "theme": "finance",
+   "used": false
+  }
+ ]
+}
