@@ -10,7 +10,7 @@ Usage:
   make_daily_finance.py --topic "Bank:Create Arbitrary"   # force a specific pair
   make_daily_finance.py --dry                # pick topic + write plan, don't render
 """
-import os, sys, json, subprocess, urllib.request, urllib.parse, io, datetime
+import os, sys, json, subprocess, urllib.request, urllib.parse, io, datetime, time
 sys.path.insert(0, '/root/ShortGPT')
 os.chdir('/root/ShortGPT')
 
@@ -75,13 +75,48 @@ Rules: spoken-language, punchy, second person, zero jargon, explain so a teenage
     lines = [ln.strip() for ln in txt.splitlines() if ln.strip()]
     return lines
 
-def fetch_pexels(query, out_path):
+def gen_meta(a, b):
+    """Generate a full explanation description + SEO tags for the short via LLM."""
+    prompt = f"""Write YouTube metadata for a finance explainer short comparing "{a}" vs "{b}".
+
+DESCRIPTION (60-90 words): a full, clear explanation of the difference anyone can
+read. Start with the one-sentence difference, then 2-3 supporting sentences.
+Plain, useful, no hype. Do NOT mention "subscribe".
+
+TAGS: exactly 12-15 comma-separated YouTube tags. Include the two terms, "vs",
+personal finance, investing, money, financial literacy, plus related searchable
+topics. All lowercase.
+
+Output EXACTLY this format, nothing else:
+DESCRIPTION:
+<the description>
+TAGS:
+<comma separated tags>
+"""
+    txt = llm(prompt)
+    desc = ""
+    tags = []
+    if "DESCRIPTION:" in txt and "TAGS:" in txt:
+        head, tail = txt.split("TAGS:", 1)
+        desc = head.split("DESCRIPTION:", 1)[1].strip().strip('"')
+        tags = [t.strip() for t in tail.split(",") if t.strip()]
+    if not desc:
+        desc = f"{a} and {b} are easy to mix up. This short explains the real difference clearly."
+    if not tags:
+        tags = [a.lower(), b.lower(), "personal finance", "investing", "money",
+                "financial literacy", "finance explained", "shorts"]
+    return desc, tags
+
+def fetch_pexels(query, out_path, exclude_id=None):
     key = pexels_key()
-    u = "https://api.pexels.com/v1/search?query=" + urllib.parse.quote(query) + "&per_page=3"
+    u = "https://api.pexels.com/v1/search?query=" + urllib.parse.quote(query) + "&per_page=5"
     req = urllib.request.Request(u, headers={"Authorization":key,"User-Agent":"Mozilla/5.0"})
     with urllib.request.urlopen(req, timeout=25) as r:
         d = json.loads(r.read())
     for ph in d.get("photos", []):
+        pid = str(ph.get("id"))
+        if exclude_id and pid == str(exclude_id):
+            continue  # never reuse the other side's exact photo
         url = ph["src"]["large"]
         try:
             ir = urllib.request.Request(url, headers={"User-Agent":"Mozilla/5.0 (X11; Linux x86_64) Chrome/124","Referer":"https://www.pexels.com/"})
@@ -91,16 +126,32 @@ def fetch_pexels(query, out_path):
             im = Image.open(io.BytesIO(data)).convert("RGB")
             im.thumbnail((440, 440))
             im.save(out_path)
-            return out_path
+            return out_path, pid
         except Exception as e:
             continue
-    return None
+    return None, None
 
 def dur(f):
     r = subprocess.run(["ffprobe","-v","error","-show_entries","format=duration",
                         "-of","default=noprint_wrappers=1:nokey=1", f],capture_output=True,text=True)
     try: return float(r.stdout.strip())
     except: return 3.0
+
+def gen_voice_safe(vm, text, audio, attempts=4):
+    """Retry TTS until the file is real audio. EdgeTTSVoiceModule.generate_voice
+    swallows the underlying exception (run_in_executor result is never awaited),
+    so a 403'd clip leaves a 0-byte mp3 and 'succeeds' — then ffmpeg dies on it.
+    edge-tts 403s are burst-flaky: single clips pass, 1-3 clips in a rapid burst
+    fail. Backoff + retry clears it; a 0-byte file never passes this gate."""
+    for i in range(attempts):
+        try:
+            vm.generate_voice(text, audio)
+        except Exception as e:
+            print(f"  [tts retry {i+1}/{attempts}] {str(e)[:120]}", flush=True)
+        if os.path.exists(audio) and os.path.getsize(audio) > 1000 and dur(audio) > 0.5:
+            return
+        time.sleep(5 + 7*i)   # 5s, 12s, 19s — burst window passes
+    raise SystemExit(f"TTS failed after {attempts} attempts: {audio}")
 
 def chunks(text, size=3):
     w = text.split(); return [" ".join(w[i:i+size]) for i in range(0,len(w),size)]
@@ -144,17 +195,28 @@ def main():
     KA, KB = str(a).lower().replace(" ","").replace("/","-"), str(b).lower().replace(" ","").replace("/","-")
     imgA = os.path.join(FRAME_DIR, f"{KA}.png")
     imgB = os.path.join(FRAME_DIR, f"{KB}.png")
-    okA = fetch_pexels(f"{a} finance", imgA)
-    okB = fetch_pexels(f"{b} finance", imgB)
-    print(f"📷 image A({a}): {'OK' if okA else 'NONE'}  image B({b}): {'OK' if okB else 'NONE'}", flush=True)
+    okA, pidA = fetch_pexels(f"{a} finance", imgA)
+    # fetch B excluding A's photo ID so the two comparison sides are ALWAYS different
+    okB, pidB = fetch_pexels(f"{b} finance", imgB, exclude_id=pidA)
+    print(f"📷 image A({a}): {'OK' if okA else 'NONE'} (id {pidA})  image B({b}): {'OK' if okB else 'NONE'} (id {pidB})", flush=True)
     if okA: register_concept(KA, imgA)
     if okB: register_concept(KB, imgB)
+
+    # 2a) SEO description + tags (full explanation + search-rich tags)
+    seo_desc, seo_tags = gen_meta(a, b)
 
     # 3) build beats: first 3 = locked flow w/ proper poses, rest explanation
     BEATS = []
     # This is A (left, show left) | This is B (left->right, both) | What's the difference (ask,both)
     labelA = a.upper()
     labelB = b.upper()
+
+    # 2b) thumbnail frame: the "What's the difference?" card (both concepts + ask
+    #     stickman + question) — this IS the channel's signature thumbnail. Rendered
+    #     now so it's guaranteed complete, written to _latest_wtd.json for upload.
+    thumb_path = os.path.join(FRAME_DIR, "_thumb.png")
+    render_beat(thumb_path, labelA, KA, labelB, KB, "", "ask", "both",
+                caption="What's the difference?")
     if len(beats) >= 3:
         BEATS.append((labelA, KA, labelB, KB, "left", "left", beats[0]))
         BEATS.append((labelA, KA, labelB, KB, "right", "both", beats[1]))
@@ -171,7 +233,7 @@ def main():
     t = 0.0; fi = 0
     for bi, (L,LI,R,RI,pose,show,nar) in enumerate(BEATS):
         audio = os.path.join(FRAME_DIR, f"beat{bi:02d}.mp3")
-        vm.generate_voice(nar, audio)
+        gen_voice_safe(vm, nar, audio)
         d = dur(audio)
         cs = chunks(nar); nw = sum(len(c.split()) for c in cs)
         for c in cs:
@@ -185,7 +247,7 @@ def main():
     # 3b) CTA end-card: voice + static frame appended as final beat
     cta_text = "Follow for more money clarity. See you tomorrow."
     cta_audio = os.path.join(FRAME_DIR, "cta.mp3")
-    vm.generate_voice(cta_text, cta_audio)
+    gen_voice_safe(vm, cta_text, cta_audio)
     dcta = dur(cta_audio)
     cta_chunks = chunks(cta_text)
     cta_nw = sum(len(c.split()) for c in cta_chunks)
@@ -239,9 +301,13 @@ def main():
     dur_out = dur(out)
     print(f"✅ DONE -> {out} ({dur_out:.1f}s)", flush=True)
 
-    json.dump({"topic":"{a} vs {b}".format(a=a,b=b),"file":out,"title":f"The Difference Between: {a} vs {b} #shorts","duration":dur_out},
+    json.dump({"topic":"{a} vs {b}".format(a=a,b=b),"file":out,
+               "title":f"The Difference Between: {a} vs {b} #shorts",
+               "thumbnail": thumb_path if os.path.exists(thumb_path) else "",
+               "description": seo_desc, "tags": seo_tags,
+               "duration":dur_out},
               open(os.path.join(WORKDIR,"_latest_wtd.json"),"w"), indent=1)
-    print(json.dumps({"file":out,"title":f"The Difference Between: {a} vs {b}","duration":dur_out}))
+    print(json.dumps({"file":out,"title":f"The Difference Between: {a} vs {b}","thumbnail":thumb_path,"duration":dur_out}))
 
 if __name__ == "__main__":
     main()

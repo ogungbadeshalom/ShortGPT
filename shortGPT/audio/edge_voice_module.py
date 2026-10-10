@@ -29,14 +29,18 @@ class EdgeTTSVoiceModule(VoiceModule):
         asyncio.set_event_loop(loop)
 
         try:
-            with ThreadPoolExecutor() as executor:
-                loop.run_in_executor(executor, run_async_func, loop, self.async_generate_voice(text, outputfile))
-
+            # run the coroutine to completion ON this loop, in THIS thread, and
+            # surface the real edge_tts exception (403 etc.). The old code fired
+            # run_in_executor and never awaited the future: the 403 was swallowed
+            # and a 0-byte mp3 "succeeded", later killing ffmpeg (Oct 10).
+            loop.run_until_complete(self.async_generate_voice(text, outputfile))
         finally:
             loop.close()
         if not os.path.exists(outputfile):
             print("An error happened during edge_tts audio generation, no output audio generated")
             raise Exception("An error happened during edge_tts audio generation, no output audio generated")
+        if os.path.getsize(outputfile) < 1000:
+            raise Exception(f"edge_tts produced a {os.path.getsize(outputfile)}-byte file (likely a 403'd clip): {outputfile}")
         return outputfile
 
     async def async_generate_voice(self, text, outputfile):
